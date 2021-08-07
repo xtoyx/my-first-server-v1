@@ -1,1 +1,1 @@
-web: gunicorn djhjfirstwebsite.wsgi
+web: gunicorn djhcjfirstwebsite.wsgi
