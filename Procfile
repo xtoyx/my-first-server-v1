@@ -1,1 +1,1 @@
-web: gunicorn mine_remote.wsgi
+web: gunicorn myfirstserverv1.wsgi
