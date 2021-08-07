@@ -1,1 +1,1 @@
-web: gunicorn myfirstserverv1.wsgi
+web: gunicorn my-first-server-v1.wsgi
