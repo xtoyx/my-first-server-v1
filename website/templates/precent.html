@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!--links for css , and other stuff-->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap" rel="stylesheet">
+      <script src="https://kit.fontawesome.com/5d14fcba74.js" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="{% static 'website/socialmediaicons.css' %}" >
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="{% static 'website/precent.css' %}">
+    <!--end for links-->
+    <title>NOT CH V1.1</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <!-- start of nav bar-->
+      <div class="container">
+        <h1>NOT CH</h1> 
+        <ul>
+        <a href="{% url 'home' %}" style="text-decoration: none;"><li>HOME</li></a>
+        <a href="{% url 'projects' %}" style="text-decoration:none ;"><li>Projects</li></a>
+        <a href="{% url 'protfilo' %}" style="text-decoration: none;"><li>PORTFOLIO</li></a>
+        <a href="{% url 'precent' %}" style="text-decoration:none;"><li id="selcted">Precent</li></a>
+        </ul>
+        <button class="btn" onclick="on()">Let's Talk</button>
+      </div>
+      <h1>How Much I Have progressed</h1>
+      <div class="progressbar3">
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" id ="prge"style="width:1%"></div>
+          </div>
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" id ="prge1"style="width:1%"></div>
+          </div>
+          <div class="progress">
+              <div class="progress-bar progress-bar-striped progress-bar-animated" id ="prge2"style="width:1%"></div>
+            </div>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" id ="prge3"style="width:1%"></div>
+              </div>
+          </div>
+            <br>
+            <button class="btn" id="Show" onclick="move()">Show</button>
+    </div>
+
+    <!-- This is overlay start-->
+
+        <div id="overlay" onclick="off()">
+          <div id="text">I Will Like You To Talk With Me</div>
+          <!-- Add font awesome icons -->
+             <!-- <i class="fab fa-discord"></i>
+              <a href="#" class="fa fa-github"></a> -->
+              <ul>
+                <li class="overlay-icons">
+                  <a href="https://github.com/xtoyx" target="_blank" class="fa fa-github"></a>
+                  <a href="https://www.discord.com/addme/toy#1534" target="_blank" class="fab fa-discord"></a>
+                </li>
+              </ul>
+        </div>
+       
+    <!-- This is overlay end-->
+  </body>
+</html>
+
+<script src="{% static 'website/codes.js' %}"></script>
+{%for student in precnet_all%}
+<script>
+  
+function move(){
+  var page=document.getElementById('prge');
+  var page1=document.getElementById('prge1');
+  var page2=document.getElementById('prge2');
+  var page3=document.getElementById('prge3');
+
+  // You can create a const object:
+  const names = {Python:"Python :{{student.Python_p}}% - To Exeprt", CyberSecruity:"CyberSecruity : {{student.CyberSecruity_p}}% - To interdim", Web:"Web : {{student.Web_p}}% - Create a Website" , Andriod: "Andriod : {{student.Andriod_p}}% - Just repeat some classes"};
+  const namesprec = {Python: "{{student.Python_p}}%", CyberSecruity:"{{student.CyberSecruity_p}}%", Web:"{{student.Web_p}}%" , Andriod: "{{student.Andriod_p}}%"};
+  const colors12 = {Python:"#CC0000", CyberSecruity:"#330000", Web:"#009999" , Andriod: "#606060"};
+
+  //make a varbirels arrays and each one of them will have one of code title
+  page.style.width=namesprec.Python;
+  page.innerHTML=names.Python;
+  page.style.backgroundColor= colors12.Python;
+
+  page1.style.width=namesprec.CyberSecruity;
+  page1.innerHTML=names.CyberSecruity;
+  page1.style.backgroundColor= colors12.CyberSecruity;
+
+  page2.style.width=namesprec.Web;
+  page2.innerHTML=names.Web;
+  page2.style.backgroundColor= colors12.Web;
+
+  page3.style.width=namesprec.Andriod;
+  page3.innerHTML=names.Andriod;
+  page3.style.backgroundColor= colors12.Andriod;
+}
+</script>
+{%endfor%}
