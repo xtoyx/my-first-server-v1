@@ -26,8 +26,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 with open(os.path.join(BASE_DIR,'secert_stuff.txt')) as f:
     SECRET_KEY = f.read().strip()
 
-DEBUG = bool(os.environ.get("DEBUG",False))
-
+# DEBUG = bool(os.environ.get("DEBUG",False))
+DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1','notchv1.herokuapp.com']
 
 
@@ -128,6 +128,7 @@ STATICFILES_DIRS =[
     os.path.join(BASE_DIR , 'static'),
 ]
 
+STATICFILES_STORAGE='django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
