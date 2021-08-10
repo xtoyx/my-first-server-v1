@@ -27,9 +27,9 @@ with open(os.path.join(BASE_DIR,'secert_stuff.txt')) as f:
     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*','notchv1.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
