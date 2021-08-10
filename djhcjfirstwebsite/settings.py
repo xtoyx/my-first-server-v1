@@ -29,7 +29,7 @@ with open(os.path.join(BASE_DIR,'secert_stuff.txt')) as f:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*',]
+ALLOWED_HOSTS = ['*','notchv1.herokuapp.com']
 
 
 # Application definition
