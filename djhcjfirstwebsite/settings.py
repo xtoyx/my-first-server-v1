@@ -28,7 +28,7 @@ with open(os.path.join(BASE_DIR,'secert_stuff.txt')) as f:
 
 DEBUG = bool(os.environ.get("DEBUG",False))
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1','notchv1.herokuapp.com']
 
 
 # Application definition
